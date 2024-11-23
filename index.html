@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>taskManager</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+	<header class="header">
+		<div class="header_switcher switcher"> 
+			<input type="checkbox" id="switcher_checkbox" class="switcher_checkbox" />
+			<label for="switcher_checkbox" class="switcher_label"></label>
+		</div>
+	</header>
+	
+	<aside class="sidebar">
+		<h1 class="sidebar__title"><span class="sidebar__span">task</span>Manager</h1>
+		<nav class="sidebar__menu">
+			<li class="sidebar__item"><a class="sidebar__link" data-key="1" href="">Задачи</a></li>
+			<li class="sidebar__item"><a class="sidebar__link" data-key="2" href="">График</a></li>
+		</nav>
+	</aside>
+
+	<main id="main" class="main">
+		<section id="1" class="main__section section">
+			<h1 class="section__title">Tasks</h1>
+			<div class="section__tasks tasks">
+			
+			</div>
+			<h1 class="section__title">Complitied Tasks</h1>
+			<div class="completedTasks_block">
+				<div class="complitiedTasks_container">
+					
+				</div>
+			</div>
+			<!-- <div class="section__settings settings">
+				<button class="settings__add"><img class="settings__add-image" src="src/icons/add.svg" alt="add task"></button>
+				<button class="settings__edit"><img class="settings__edit-image" src="src/icons/edit.svg" alt="edit task"></button>
+				<button class="settings__delete"><img class="settings__delete-image" src="src/icons/delete.svg" alt="delete task"></button> 
+			</div> -->
+		</section>
+	
+		<section id="2" class="main_section section">
+			<h1 class="section__title">График</h1>
+			
+		</section>
+	</main>
+
+
+
+<div class="twoColoumn">
+	<!-- <div class="tasks_block">
+		<h1>Tasks</h1>
+			<div class="tasks_container">
+			
+			</div>
+	</div> -->
+
+	<!-- <div class="completedTasks_block">
+		<h1>Complitied Tasks</h1>
+		<div class="complitiedTasks_container">
+			
+		</div>
+	</div> -->
+</div>
+	
+
+	<div class="addTasks_block">
+		<h1>Add task</h1>
+		<div class="addTasks_container">
+			<input id="title" type="text" placeholder="title">
+			<input id="desc" type="text" placeholder="description">
+
+			<button class="add">Add</button>
+			<button class="clear">Clear</button>
+		</div>
+	</div>
+
+	<div class="popup_block">
+		<div class="popup_container">
+			<div class="popup_title">
+				<h2 id="titleHere">Lorem, ipsum dolor</h2>
+				<h3 class="closePopup">X</h3>
+			</div>
+			<p id="descHere">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde sunt cumque explicabo dolore minima rem!</p>
+			<div class="popup_buttons">
+				<button class="take">Take &#10004;</button>
+				<button class="cancel closePopup">Cancel</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
+
