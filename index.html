@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>taskManager</title>
 	<link rel="stylesheet" href="styles.css">
+
+	<!-- icons -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+	<!-- Calendar -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 
@@ -16,57 +22,62 @@
 	</header>
 	
 	<aside class="sidebar">
-		<h1 class="sidebar__title"><span class="sidebar__span">task</span>Manager</h1>
+		<div class="sidebar__title-container">
+			<span class="sidebar_icon material-symbols-outlined">menu</span>
+			<h1 class="sidebar__title">taskManager</h1>
+		</div>
+		
 		<nav class="sidebar__menu">
-			<li class="sidebar__item"><a class="sidebar__link" data-key="1" href="">Задачи</a></li>
-			<li class="sidebar__item"><a class="sidebar__link" data-key="2" href="">График</a></li>
+			<li class="sidebar__item">
+				<a class="sidebar__link" data-key="1" href="">
+					<span class="sidebar__icon material-symbols-outlined">splitscreen</span>Задачи
+				</a>
+			</li>
+			<li class="sidebar__item">
+				<a class="sidebar__link" data-key="2" href="">
+					<span class="sidebar__icon material-symbols-outlined">bar_chart</span>График
+				</a>
+			</li>
+			<li class="sidebar__item">
+			<a class="sidebar__link" data-key="3" href="">
+				<span class="sidebar__icon material-symbols-outlined">done_all</span>Завершенные
+			</a>
+			</li>
 		</nav>
 	</aside>
 
 	<main id="main" class="main">
 		<section id="1" class="main__section section">
+			<div class="section__settings settings">
+				<button id="settings__add" class="settings__add">
+					<span class="settings__icon material-symbols-outlined">add</span>
+					Добавить задачу 
+				</button>
+				<button class="settings__select">
+					<span class="settings__icon material-symbols-outlined">select_check_box</span>
+					Выбрать несколько
+				</button>
+				<!-- <button class="settings__button"></button>  -->
+			</div>
 			<h1 class="section__title">Tasks</h1>
 			<div class="section__tasks tasks">
-			
 			</div>
 			<h1 class="section__title">Complitied Tasks</h1>
 			<div class="completedTasks_block">
 				<div class="complitiedTasks_container">
-					
 				</div>
 			</div>
-			<!-- <div class="section__settings settings">
-				<button class="settings__add"><img class="settings__add-image" src="src/icons/add.svg" alt="add task"></button>
-				<button class="settings__edit"><img class="settings__edit-image" src="src/icons/edit.svg" alt="edit task"></button>
-				<button class="settings__delete"><img class="settings__delete-image" src="src/icons/delete.svg" alt="delete task"></button> 
-			</div> -->
 		</section>
 	
 		<section id="2" class="main_section section">
 			<h1 class="section__title">График</h1>
-			
+		</section>
+
+		<section id="3" class="main_section section">
+			<h1 class="section__title">Завершенные</h1>
 		</section>
 	</main>
-
-
-
-<div class="twoColoumn">
-	<!-- <div class="tasks_block">
-		<h1>Tasks</h1>
-			<div class="tasks_container">
-			
-			</div>
-	</div> -->
-
-	<!-- <div class="completedTasks_block">
-		<h1>Complitied Tasks</h1>
-		<div class="complitiedTasks_container">
-			
-		</div>
-	</div> -->
-</div>
 	
-
 	<div class="addTasks_block">
 		<h1>Add task</h1>
 		<div class="addTasks_container">
@@ -75,6 +86,32 @@
 
 			<button class="add">Add</button>
 			<button class="clear">Clear</button>
+		</div>
+	</div>
+
+	<div id="popup" class="popup">
+		<div id="popup__container" class="popup__container">
+			<div id="popup__upper-container" class="popup__upper-container">
+				<div class="popup__title-container">
+					<h2 class="popup__title">New task</h2>
+					<input type="text" class="popup__title-input">
+					<span class="popup__edit material-symbols-outlined">edit</span>
+				</div>
+				<div class="popup__actions">
+					<span class="popup__save material-symbols-outlined">check</span>
+					<span id="popup__close" class="popup__close material-symbols-outlined">close</span>
+				</div>
+			</div>
+			<div class="popup__information-container">
+				<div class="popup__information">
+					<p class="popup__description">New description</p>
+					<input type="text" class="popup__description-input">
+					<span class="popup__edit material-symbols-outlined">edit</span>
+				</div>
+				<div class="popup__calendar-container">
+					<input class="popup__calendar" type="text" id="calendar" placeholder="Выберите дату">
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -92,7 +129,8 @@
 		</div>
 	</div>
 
-	<script src="script.js"></script>
+	<script type="module" src="script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>
 

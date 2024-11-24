@@ -16,6 +16,10 @@
 	--toggle-bg: #666666;
 }
 
+:root{
+	--fontSize-h1: 22px;
+}
+
 *{
 	margin: 0px;
 	padding: 0px;
@@ -24,7 +28,7 @@
 }
 
 body{
-	margin: 90px 0px 0px 300px;
+	margin: 90px 0px 0px 240px;
 	background-color: var(--background);
 }
 
@@ -33,7 +37,7 @@ body{
 .header{
 	position: fixed;
 	top: 0px;
-	left: 300px;
+	left: 240px;
 	right: 0px;
 	height: 70px;
 	z-index: 1;
@@ -98,13 +102,23 @@ body{
 	top: 0px;
 	left: 0px;
 	bottom: 0px;
-	width: 300px;
+	width: 240px;
 	box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
-	
 	padding: 20px;
+}
+.sidebar__title-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.sidebar_icon{
+	cursor: pointer;
 }
 .sidebar__title{
 	color: var(--colorPrimary);
+	font-size: var(--fontSize-h1);
+	cursor: pointer;
 }
 .sidebar__span{
 	color: var(--colorAccent);
@@ -124,6 +138,9 @@ body{
 	font-size: 18px;
 	color: var(--colorPrimary);
 	text-decoration: none;
+}
+.sidebar__icon{
+	margin-right: 10px;
 }
 .sidebar__link:hover{
 	background-color: var(--background);
@@ -165,11 +182,14 @@ body{
 .tasks__container{
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 	background-color: var(--backgroundAccent);
 	border-radius: 10px;
 	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 	transition: transform 0.1s;
 	padding: 8px 16px;
+	cursor: pointer;
 }
 .tasks__container:hover{
 	transform: translateY(-0.05em);
@@ -186,15 +206,11 @@ body{
 }
 .tasks__settings{
 	cursor: pointer;
-	color: var(--colorPrimary);
 }
 .tasks__title-container{
 	display: flex;
 	align-items: center;
 	gap: 30px;
-}
-.tasks__title-container h2{
-	font-size: var(--h2-fs);
 }
 .tasks__date{
 	color: gray;
@@ -207,7 +223,7 @@ body{
 	color: var(--colorPrimary);
 }
 /* Settings ________________________ */
-/* .section__settings{
+.section__settings{
 	padding: 20px;
 }
 .settings{
@@ -218,25 +234,16 @@ body{
 	gap: 4px;
 }
 .settings__add,
-.settings__edit,
-.settings__delete{
-	border: none;
-	padding: 8px;
-	border-radius: 8px;
+.settings__select{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 6px;
+	border: none;
+	border-radius: 8px;
+	padding: 6px 10px;
 	cursor: pointer;
 }
-.settings__add{
-background-color: #e9ffb2;
-}
-.settings__edit{
-	background-color: #ffcbb2;
-}
-.settings__delete{
-	background-color: #ffb2b2;
-} */
 /* Settings End _____________________ */
 
 
@@ -333,6 +340,7 @@ background-color: #e9ffb2;
 	.cancel{
 		background-color: gray;
 	}
+	
 
 	/* ADD TASK */
 	.addTasks_block{
@@ -372,3 +380,77 @@ background-color: #e9ffb2;
 	.clear{
 		background-color: gray;
 	}
+
+/* Other popup */
+.popup{
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.1);
+	z-index: 2;
+}
+.popup__container{
+	background-color: white;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 10px;
+	padding: 20px;
+	width: 720px;
+}
+.popup__upper-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.popup__title-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+}
+.popup__information-container{
+	display: flex;
+	flex-direction: row;
+	align-items: start;
+	justify-content: space-between;
+	gap: 10px;
+}
+.popup__information{
+	display: flex;
+	flex-direction: row;
+	align-items: start;
+	gap: 8px;
+}
+.popup__save,
+.popup__close,
+.popup__edit{
+	cursor: pointer;
+}
+.popup__edit{
+	margin-left: 8px;
+}
+.popup__calendar{
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: center;
+}
+.popup__title-input{
+	border: none;
+	outline: none;
+	font-size: 22px;
+	font-weight: bold;
+}
+.popup__description-input{
+	display: none;
+	border: none;
+	outline: none;
+}
+/* end _______ */

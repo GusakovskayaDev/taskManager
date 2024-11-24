@@ -1,3 +1,7 @@
+import popupMethods from './scripts/popup.js';
+import dataMethods from './scripts/data.js';
+import listenersMethods from './scripts/listeners.js';
+
 // Получение доступа к необходимым элементам
 const tasks = document.querySelector('.tasks');
 const title = document.getElementById('title');
@@ -10,35 +14,32 @@ const popup_block = document.querySelector('.popup_block');
 // Собрала в кучу прослушивателей событий
 function addEventListeners() {
 
-	const tasks = document.querySelectorAll('.tasks__text');
+	listenersMethods.settings__add();
+	listenersMethods.popup__close();
+	listenersMethods.popup__container();
+	
+
+	const tasks__container = document.querySelectorAll('.tasks__container');
 	const popup_block = document.querySelector('.popup_block');
 	const popupTitle = document.getElementById('titleHere');
 	const descHere = document.getElementById('descHere');
 
-	// Открываем Попап окно
-	tasks.forEach(element => {
-			element.addEventListener('click', () => {
-			popupTitle.innerHTML = element.data.title;
-			descHere.innerHTML = element.data.description;
-			popup_block.classList.add("displayBlock");
+	// const popup = document.getElementById('popup');
+	
+	const popup__edit  = document.getElementById('popup__edit ');
+
+	tasks__container.forEach(task => {
+		task.addEventListener('click', () => {
+
+			const taskData = {
+				title: task.dataset.title,
+				description: task.dataset.desc
+			};
+
+			popupMethods.open('popup', taskData);
 		})
 	});
 
-	// Закрываем окно
-	const closePopup = document.querySelectorAll('.closePopup');
-	closePopup.forEach(element => {
-		element.addEventListener('click', () => {
-			popup_block.classList.remove("displayBlock");
-		})
-	});
-
-	// Закрываем окно по нажатию на область
-	const popup_container = document.querySelector('.popup_container');
-	document.addEventListener('mousedown', (event) => {
-		if (!popup_container.contains(event.target)) {
-			popup_block.classList.remove("displayBlock");
-		}
-	});
 }
 
 // Модуль, хранящий в себе методы по работе с данными
@@ -50,14 +51,17 @@ const dataManager = {
 	displayRecord(record) {
     const tasks__container = document.createElement('div');
     tasks__container.classList.add('tasks__container');
+		tasks__container.dataset.title = record.title;
+		tasks__container.dataset.desc = record.description;
 
-		const tasks__text = document.createElement('div'); 
-		tasks__text.classList.add('tasks__text');
-		tasks__text.data = {title: record.title, description: record.description, completed: record.completed}
-		const tasks__settings = document.createElement('img');
-		tasks__settings.classList.add('tasks__settings');
-		tasks__settings.src = 'src/icons/more.svg';
-		tasks__settings.alt = 'open settings';
+		const tasks__textContainer = document.createElement('div'); 
+		tasks__textContainer.classList.add('tasks__textContainer');
+		tasks__textContainer.data = {title: record.title, description: record.description, completed: record.completed}
+
+		const tasks__settings = document.createElement('span');
+		tasks__settings.classList.add('tasks__settings', 'material-symbols-outlined');
+		tasks__settings.innerText = 'more_vert';
+	
 		// const button = document.createElement('button');
 		// button.classList.add('delete');
 		// button.innerHTML = 'Delete';
@@ -87,10 +91,10 @@ const dataManager = {
 		tasks__titleContainer.appendChild(tasks__title);
 		tasks__titleContainer.appendChild(tasks__date);
 
-		tasks__text.appendChild(tasks__titleContainer);
-		tasks__text.appendChild(tasks__description);
+		tasks__textContainer.appendChild(tasks__titleContainer);
+		tasks__textContainer.appendChild(tasks__description);
 
-		tasks__container.appendChild(tasks__text);
+		tasks__container.appendChild(tasks__textContainer);
 		tasks__container.appendChild(tasks__settings);
 
     tasks.appendChild(tasks__container);
@@ -124,8 +128,7 @@ const dataManager = {
 			})
 		});
 
-		// Обновляем данные на странице
-		addEventListeners();
+		
   },
 	
 	// Инициализация данных из localStorage
@@ -237,4 +240,16 @@ sidebar.addEventListener('click', (event) => {
   false
 );
 
+
+// Calendar
+    document.addEventListener('DOMContentLoaded', function () {
+        flatpickr('#calendar', {
+					inline: true,
+					dateFormat: 'd m Y',
+        });
+    });
+
+
+		// Обновляем данные на странице
+		addEventListeners();
 
