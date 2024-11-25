@@ -234,15 +234,44 @@ body{
 	gap: 4px;
 }
 .settings__add,
-.settings__select{
+.settings__select,
+.settings__splitscreen-left,
+.settings__splitscreen-bottom,
+.settings__filter-alt,
+.settings__sort,
+.search__search,
+.settings__delete,
+.settings__check{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 6px;
 	border: none;
 	border-radius: 8px;
-	padding: 6px 10px;
+	padding: 6px 8px;
 	cursor: pointer;
+}
+.settings__icon-splitscreen-bottom,
+.settings__icon-splitscreen-left,
+.settings__icon-filter-alt,
+.settings__icon-sort,
+.search__icon-search,
+.settings__icon-delete,
+.settings__delete{
+	color: #4b4b4b;
+}
+.search{
+	display: flex;
+	flex-direction: row;
+	gap: 4px;
+}
+.search__input{
+	border: 1px solid gray;
+	border-radius: 8px;
+	outline: none;
+	padding: 0px 8px;
+}
+.search__icon-search{
 }
 /* Settings End _____________________ */
 
@@ -382,7 +411,7 @@ body{
 	}
 
 /* Other popup */
-.popup{
+.popup, .popup-new{
 	display: none;
 	position: fixed;
 	top: 0px;
@@ -409,12 +438,6 @@ body{
 	justify-content: space-between;
 	margin-bottom: 20px;
 }
-.popup__title-container{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 8px;
-}
 .popup__information-container{
 	display: flex;
 	flex-direction: row;
@@ -424,14 +447,41 @@ body{
 }
 .popup__information{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: start;
 	gap: 8px;
 }
+.popup__actions{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 6px;
+} 
+.popup__add,
+.popup__done,
 .popup__save,
-.popup__close,
-.popup__edit{
+.popup__delete,
+.popup__button{
 	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	gap: 6px;
+	align-items: center;
+	padding: 6px 12px 6px 8px;
+	border: none;
+	border-radius: 6px;
+}
+.popup__clean{
+	
+}
+.popup__close,
+.popup__edit,
+.popup__done,
+.popup__delete{
+	cursor: pointer;
+}
+.popup__close{
+	margin-left: 20px;
 }
 .popup__edit{
 	margin-left: 8px;
@@ -442,15 +492,31 @@ body{
 	outline: none;
 	text-align: center;
 }
-.popup__title-input{
+.popup__title{
 	border: none;
 	outline: none;
 	font-size: 22px;
 	font-weight: bold;
+	background-color: #f1f1f1;
+	border-radius: 8px;
+	padding: 6px 10px;
+	width: 358px; 
+	margin-top: 26px;
 }
-.popup__description-input{
-	display: none;
+.popup__description{
 	border: none;
 	outline: none;
+	width: 358px; 
+	height: 180px;
+	resize: none;
+	background-color: #f1f1f1;
+	border-radius: 8px;
+	padding: 6px 10px;
 }
 /* end _______ */
+
+.completed{
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}

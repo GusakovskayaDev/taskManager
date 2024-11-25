@@ -47,89 +47,72 @@
 	</aside>
 
 	<main id="main" class="main">
+		<!-- Секция Задачи __________________________________ -->
 		<section id="1" class="main__section section">
 			<div class="section__settings settings">
+				<button class="settings__splitscreen-left">
+					<span class="settings__icon-splitscreen-left material-symbols-outlined">splitscreen_left</span>
+				</button>
+				<button class="settings__splitscreen-bottom">
+					<span class="settings__icon-splitscreen-bottom material-symbols-outlined">splitscreen_bottom</span>
+				</button>
+				<button class="settings__filter-alt">
+					<span class="settings__icon-filter-alt material-symbols-outlined">filter_alt</span>
+				</button>
+				<button class="settings__sort">
+					<span class="settings__icon-sort material-symbols-outlined">sort</span>
+				</button>
+				<div class="settings__search search">
+					<input class="search__input" type="text" placeholder="поиск..">
+					<button class="search__search">
+						<span class="search__icon-search material-symbols-outlined">search</span>
+					</button>
+				</div>
+				<!-- Кнопка Добавить задачу -->
 				<button id="settings__add" class="settings__add">
 					<span class="settings__icon material-symbols-outlined">add</span>
 					Добавить задачу 
 				</button>
+				<!-- Кнопка Выбрать несколько -->
 				<button class="settings__select">
 					<span class="settings__icon material-symbols-outlined">select_check_box</span>
 					Выбрать несколько
 				</button>
-				<!-- <button class="settings__button"></button>  -->
+				<button class="settings__check">
+					<span class="settings__icon-check material-symbols-outlined">check</span>
+				</button>
+				<button class="settings__delete">
+					<span class="settings__icon-delete material-symbols-outlined">delete</span>
+				</button>
 			</div>
+
 			<h1 class="section__title">Tasks</h1>
 			<div class="section__tasks tasks">
-			</div>
-			<h1 class="section__title">Complitied Tasks</h1>
-			<div class="completedTasks_block">
-				<div class="complitiedTasks_container">
-				</div>
+
 			</div>
 		</section>
-	
+		<!-- Секция График _________________________________ -->
 		<section id="2" class="main_section section">
 			<h1 class="section__title">График</h1>
 		</section>
-
+		<!-- Секция Завершенные _____________________________ -->
 		<section id="3" class="main_section section">
 			<h1 class="section__title">Завершенные</h1>
+			<div class="section__completed completed">
+			</div>
 		</section>
+
 	</main>
-	
-	<div class="addTasks_block">
-		<h1>Add task</h1>
-		<div class="addTasks_container">
-			<input id="title" type="text" placeholder="title">
-			<input id="desc" type="text" placeholder="description">
 
-			<button class="add">Add</button>
-			<button class="clear">Clear</button>
-		</div>
-	</div>
-
+	<!-- Интерактивный Попап ______________________________ -->
 	<div id="popup" class="popup">
 		<div id="popup__container" class="popup__container">
-			<div id="popup__upper-container" class="popup__upper-container">
-				<div class="popup__title-container">
-					<h2 class="popup__title">New task</h2>
-					<input type="text" class="popup__title-input">
-					<span class="popup__edit material-symbols-outlined">edit</span>
-				</div>
-				<div class="popup__actions">
-					<span class="popup__save material-symbols-outlined">check</span>
-					<span id="popup__close" class="popup__close material-symbols-outlined">close</span>
-				</div>
-			</div>
-			<div class="popup__information-container">
-				<div class="popup__information">
-					<p class="popup__description">New description</p>
-					<input type="text" class="popup__description-input">
-					<span class="popup__edit material-symbols-outlined">edit</span>
-				</div>
-				<div class="popup__calendar-container">
-					<input class="popup__calendar" type="text" id="calendar" placeholder="Выберите дату">
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="popup_block">
-		<div class="popup_container">
-			<div class="popup_title">
-				<h2 id="titleHere">Lorem, ipsum dolor</h2>
-				<h3 class="closePopup">X</h3>
-			</div>
-			<p id="descHere">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde sunt cumque explicabo dolore minima rem!</p>
-			<div class="popup_buttons">
-				<button class="take">Take &#10004;</button>
-				<button class="cancel closePopup">Cancel</button>
-			</div>
+			
 		</div>
 	</div>
 
 	<script type="module" src="script.js"></script>
+	<!-- Библиотека Календарь -->
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>
