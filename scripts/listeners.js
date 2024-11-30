@@ -103,7 +103,21 @@ const listenersMethods = {
 			const popup__delete = document.getElementById('popup__delete');
 			popup__delete.addEventListener('click', () => {
 					dataMethods.remove();
-			})
+			});
+	},
+
+	login__login(){
+			const login__login = document.getElementById('login__login');
+			login__login.addEventListener('click', () => {
+					popupMethods.open('login');
+			});
+	},
+
+	login__signup(){
+			const login__signup = document.getElementById('login__signup');
+			login__signup.addEventListener('click', () => {
+					popupMethods.open('signup');
+			});
 	},
 
 }

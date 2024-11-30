@@ -1,11 +1,13 @@
 import dataMethods from './scripts/data.js';
 import listenersMethods from './scripts/listeners.js';
+import loginMethods from './scripts/login.js';
 
 // Прослушиватели событий
 function addEventListeners() {
 		listenersMethods.settings__add();
 		listenersMethods.popup__container();
-		// listenersMethods.tasks__container();
+		listenersMethods.login__login();
+		listenersMethods.login__signup();
 }
 
 // changing themes _______________________________________

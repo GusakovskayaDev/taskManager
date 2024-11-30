@@ -192,6 +192,98 @@ const popupMethods = {
 		listenersMethods.popup__delete();
 	},
 
+	generation_login(){
+		const popup__loginContainer = document.createElement('div');
+
+		const popup__upperContainer = document.createElement('div');
+		popup__upperContainer.classList.add('popup__upper-container');
+		popup__upperContainer.id = 'popup__upper-container';
+
+		const popup__loginTitle = document.createElement('h2');
+		popup__loginTitle.classList.add('popup__login-title');
+		popup__loginTitle.innerText = 'Войти';
+
+		const material__close = document.createElement('span');
+		material__close.id = 'popup__close';
+		material__close.classList.add('popup__close', 'material-symbols-outlined');
+		material__close.innerText = 'close';
+
+		popup__upperContainer.appendChild(popup__loginTitle);
+		popup__upperContainer.appendChild(material__close);
+		popup__loginContainer.appendChild(popup__upperContainer);
+
+		const popup__loginForm = document.createElement('form');
+		popup__loginForm.classList.add('popup__login-form');
+		const popup__loginInput = document.createElement('input');
+		popup__loginInput.classList.add('popup__login-input');
+		popup__loginInput.placeholder = 'Ваш логин';
+		const popup__loginPassword = document.createElement('input');
+		popup__loginPassword.classList.add('popup__login-password');
+		popup__loginPassword.placeholder = 'Ваш пароль';
+
+		const popup__loginButton = document.createElement('button');
+		popup__loginButton.id = 'popup__login-button';
+		popup__loginButton.classList.add('popup__login-button');
+		popup__loginButton.innerText = 'Войти';
+
+		popup__loginForm.appendChild(popup__loginInput);
+		popup__loginForm.appendChild(popup__loginPassword);
+		popup__loginForm.appendChild(popup__loginButton);
+		popup__loginContainer.appendChild(popup__loginForm);
+
+		popup__container.appendChild(popup__loginContainer);
+
+	},
+
+	generation_signup(){
+		const popup__loginContainer = document.createElement('div');
+
+		const popup__upperContainer = document.createElement('div');
+		popup__upperContainer.classList.add('popup__upper-container');
+		popup__upperContainer.id = 'popup__upper-container';
+
+		const popup__loginTitle = document.createElement('h2');
+		popup__loginTitle.classList.add('popup__login-title');
+		popup__loginTitle.innerText = 'Регистрация';
+
+		const material__close = document.createElement('span');
+		material__close.id = 'popup__close';
+		material__close.classList.add('popup__close', 'material-symbols-outlined');
+		material__close.innerText = 'close';
+
+		const popup__generation = document.createElement('span');
+		popup__generation.id = 'popup__generation';
+		popup__generation.classList.add('popup__generation', 'material-symbols-outlined');
+		popup__generation.innerText = 'deployed_code';
+
+		popup__upperContainer.appendChild(popup__loginTitle);
+		popup__upperContainer.appendChild(material__close);
+		popup__loginContainer.appendChild(popup__upperContainer);
+
+		const popup__loginForm = document.createElement('form');
+		popup__loginForm.classList.add('popup__login-form');
+		const popup__loginInput = document.createElement('input');
+		popup__loginInput.classList.add('popup__login-input');
+		popup__loginInput.placeholder = 'Ваш логин';
+		const popup__loginPassword = document.createElement('input');
+		popup__loginPassword.classList.add('popup__login-password');
+		popup__loginPassword.placeholder = 'Ваш пароль';
+
+		const popup__signButton = document.createElement('button');
+		popup__signButton.id = 'popup__login-button';
+		popup__signButton.classList.add('popup__sign-button');
+		popup__signButton.innerText = 'Зарегистрироваться';
+
+		popup__loginForm.appendChild(popup__loginInput);
+		popup__loginForm.appendChild(popup__loginPassword);
+		// popup__loginForm.appendChild(popup__generation);
+		popup__loginForm.appendChild(popup__signButton);
+		popup__loginContainer.appendChild(popup__loginForm);
+
+		popup__container.appendChild(popup__loginContainer);
+
+	},
+
 	// Открыть popup _______________________________
 	open(param, dataObj) {
 			const popup = document.getElementById('popup');
@@ -200,6 +292,10 @@ const popupMethods = {
 				this.generation_newTask();
 			} else if(param === 'cardTask'){
 				this.generation_cardTask(dataObj);
+			} else if(param === 'login'){
+				this.generation_login();
+			} else if(param === 'signup'){
+				this.generation_signup();
 			}
 
 			listenersMethods.popup__close();

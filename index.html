@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>taskManager</title>
 	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 	<!-- icons -->
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -19,6 +20,11 @@
 			<input type="checkbox" id="switcher_checkbox" class="switcher_checkbox" />
 			<label for="switcher_checkbox" class="switcher_label"></label>
 		</div>
+		<div class="header__login login">
+			<button id="login__login" class="login__login">Войти</button>
+			<button id="login__signup" class="login__signup">Регистрация</button>
+		</div>
+	
 	</header>
 	
 	<aside class="sidebar">
@@ -87,9 +93,28 @@
 			</div>
 
 			<h1 class="section__title">Tasks</h1>
-			<div class="section__tasks tasks">
-
+			<div class="section__tasks tasks"></div>
+			<div class="section__gorizontal-view gorizontal-view">
+				<div class="gorizontal-view__container">
+					<h2>Задачи</h2>
+					<div class="gorizontal-view__container gorizontal-view__tasks">
+						1
+					</div>
+				</div>
+				<div class="gorizontal-view__container">
+					<h2>Просроченные</h2>
+					<div class="gorizontal-view__container gorizontal-view__process">
+						2
+					</div>
+				</div>
+				<div class="gorizontal-view__container">
+					<h2>Завершенные</h2>
+					<div class="gorizontal-view__container gorizontal-view__completed">
+						3
+					</div>
+				</div>
 			</div>
+
 		</section>
 		<!-- Секция График _________________________________ -->
 		<section id="2" class="main_section section">
@@ -107,9 +132,11 @@
 	<!-- Интерактивный Попап ______________________________ -->
 	<div id="popup" class="popup">
 		<div id="popup__container" class="popup__container">
-			
+
 		</div>
 	</div>
+
+
 
 	<script type="module" src="script.js"></script>
 	<!-- Библиотека Календарь -->
