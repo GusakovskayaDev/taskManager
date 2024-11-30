@@ -5,6 +5,12 @@
 	--colorSecondary: #272727;
 	--colorAccent: #272727;
 	--toggle-bg: #CFCFCF;
+
+	/* sidebar */
+	--color-logo: #272727;
+	--color-text: #272727;
+	--bg-link: #4278ff;
+	--color-active: white;
 }
 
 :root[data-theme='dark'] {
@@ -14,6 +20,12 @@
 	--colorSecondary: white;
 	--colorAccent: white;
 	--toggle-bg: #666666;
+
+		/* sidebar */
+		--color-logo: #e3e3e3;
+		--color-text: #e3e3e3;
+		--bg-link: #4278ff;
+		--color-active: white;
 }
 
 :root{
@@ -116,7 +128,7 @@ body{
 	cursor: pointer;
 }
 .sidebar__title{
-	color: var(--colorPrimary);
+	color: var(--color-logo);
 	font-size: var(--fontSize-h1);
 	cursor: pointer;
 }
@@ -143,10 +155,12 @@ body{
 	margin-right: 10px;
 }
 .sidebar__link:hover{
-	background-color: var(--background);
+	background-color: var(--bg-link);
+	color: var(--color-active);
 }
 .sidebar__link_active{
-	background-color: var(--background);
+	background-color: var(--bg-link);
+	color: var(--color-active);
 }
 /* end _____________________________ */
 

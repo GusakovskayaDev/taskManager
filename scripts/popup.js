@@ -150,7 +150,7 @@ const popupMethods = {
 		popup__title.type = 'text';
 		popup__title.innerHTML = dataObj.title;
 		popup__title.value = dataObj.title;
-
+		popup__title.dataset.idtask = dataObj.id;
 		const popup__description = document.createElement('textarea');
 		popup__description.classList.add('popup__description');
 		popup__description.id = 'popup__description';
@@ -212,14 +212,15 @@ const popupMethods = {
 			const popup = document.getElementById('popup');
 			const popup__container = document.getElementById('popup__container');
 			if (popup) {
+				popup__container.innerHTML = '';
 					popup.style.display = 'none';
-					popup__container.innerHTML = '';
 			}
 	},
 
 	// Отчистить popup _______________________________
 	clean() {
-
+		const popup__container = document.getElementById('popup__container');
+		popup__container.innerHTML = '';
 	}
 };
 

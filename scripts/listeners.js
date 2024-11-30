@@ -35,14 +35,38 @@ const listenersMethods = {
 			popup__add.addEventListener('click', () => {
 					const popup__title = document.getElementById('popup__title');
 					const popup__description = document.getElementById('popup__description');
+					const calendar = document.getElementById('calendar');
 					
 					let title = popup__title.value;
 					let desc = popup__description.value;
 
+					// Генерируем Идентификатор
+					let newArray = [...new Set(dataMethods.data.map(item => {
+						let num = item.id.replace('TASKS', '');
+						return parseInt(num, 10);
+					}))];
+					let maxId = Math.max(...newArray); 
+					// if(){
+						
+					// }
+					let newIdNumber = maxId + 1;
+					let newId = 'TASKS' + String(newIdNumber).padStart(3, '0');
+
+					const todayDate = new Date();
+					const day = todayDate.getDate();
+					const month = todayDate.getMonth() + 1;
+					const year = todayDate.getFullYear();
+
+					const dataCompleted = calendar.value;
+					const formattedDate = dataCompleted.split(" ").join(".");
+
 					let dataObj = {
+						id: newId,
 						title: title,
 						description: desc,
 						completed: false,
+						dataFrom: `${day}.${month}.${year}`,
+						dataCompleted: formattedDate
 					}
 
 					dataMethods.add(dataObj);
@@ -57,6 +81,7 @@ const listenersMethods = {
 		tasks__container.forEach(task => {
 				task.addEventListener('click', () => {
 					const taskData = {
+						id: task.dataset.idtask,
 						title: task.dataset.title,
 						description: task.dataset.desc
 					};

@@ -5,7 +5,7 @@ import listenersMethods from './scripts/listeners.js';
 function addEventListeners() {
 		listenersMethods.settings__add();
 		listenersMethods.popup__container();
-		listenersMethods.tasks__container();
+		// listenersMethods.tasks__container();
 }
 
 // changing themes _______________________________________
@@ -27,12 +27,14 @@ switcher_checkbox.addEventListener('click', () => {
 
 
 // menu _______________________________________
-const main = document.getElementById('main');
 const sidebar = document.querySelector('.sidebar');
 const sections = document.querySelectorAll('.section');
+const section = document.querySelector('section');
 const sidebar__link = document.querySelectorAll('.sidebar__link');
+const sidebar__tasks = document.getElementById('sidebar__tasks');
 
 sidebar.addEventListener('click', (event) => {
+		sidebar__tasks.classList.remove('sidebar__link_active');
     const target = event.target;
     if (target.classList.contains('sidebar__link')) {
       event.preventDefault();
@@ -54,6 +56,10 @@ sidebar.addEventListener('click', (event) => {
   false
 );
 
+	section.classList.add('active');
+	sidebar__tasks.classList.add('sidebar__link_active');
+
 	dataMethods.init();
+	dataMethods.display();
 	addEventListeners();
 
